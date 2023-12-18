@@ -1,10 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./styles.css";
-import { HeroesApp } from "./HeroesApp";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./router/AppRouter";
+import { Navbar } from "./ui/components/Navbar";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <HeroesApp />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );

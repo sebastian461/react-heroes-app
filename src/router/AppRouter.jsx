@@ -21,7 +21,7 @@ export const router = createBrowserRouter([
         element: <SearchPage />,
       },
       {
-        path: "heroe",
+        path: "heroe/:id",
         element: <HeroPage />,
       },
     ],

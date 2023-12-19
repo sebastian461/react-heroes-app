@@ -1,3 +1,4 @@
+import { HeroeCard } from "./";
 import { getHeroesByPublisher } from "../helpers/getHeroesByPublisher";
 import PropTypes from "prop-types";
 
@@ -5,11 +6,11 @@ export const HeroeList = ({ publisher }) => {
   const heroes = getHeroesByPublisher(publisher);
 
   return (
-    <ul>
+    <div className="row rows-cols-1 row-cols-md-3 g-3">
       {heroes.map((h) => (
-        <li key={h.id}>{h.superhero}</li>
+        <HeroeCard key={h.id} {...h} />
       ))}
-    </ul>
+    </div>
   );
 };
 

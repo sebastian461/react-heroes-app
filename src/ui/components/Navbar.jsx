@@ -30,20 +30,6 @@ export const Navbar = () => {
           >
             DC
           </NavLink>
-          <NavLink
-            className={`nav-item nav-link ${({ isActive, isPending }) =>
-              isPending ? "pending" : isActive ? "active" : ""}`}
-            to="/heroe"
-          >
-            Heroe
-          </NavLink>
-          <NavLink
-            className={`nav-item nav-link ${({ isActive, isPending }) =>
-              isPending ? "pending" : isActive ? "active" : ""}`}
-            to="/search"
-          >
-            Search
-          </NavLink>
         </div>
       </div>
 

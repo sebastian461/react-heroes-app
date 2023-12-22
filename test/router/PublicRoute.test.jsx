@@ -2,6 +2,7 @@ const { render, screen } = require("@testing-library/react");
 const { PublicRoute } = require("../../src/router/PublicRoute");
 const { AuthContext } = require("../../src/auth/context");
 const { PrivateRoute } = require("../../src/router/PrivateRoute");
+const { createMemoryRouter, RouterProvider } = require("react-router-dom");
 
 describe("Pruebas en PublicRoute", () => {
   test("debe de mostrar el children sino está autenticado", () => {
@@ -33,11 +34,28 @@ describe("Pruebas en PublicRoute", () => {
       },
     };
 
+    const routes = [
+      {
+        path: "marvel",
+        element: <h1>Página Marvel</h1>,
+      },
+      {
+        path: "login",
+        element: (
+          <PublicRoute>
+            <h1>Usuario no autenticado</h1>
+          </PublicRoute>
+        ),
+      },
+    ];
+
+    const router = createMemoryRouter(routes, {
+      initialEntries: ["/login", "/marvel"],
+    });
+
     render(
       <AuthContext.Provider value={contextValue}>
-        <PrivateRoute>
-          <h1>Página Marvel</h1>
-        </PrivateRoute>
+        <RouterProvider router={router} />
       </AuthContext.Provider>
     );
 
